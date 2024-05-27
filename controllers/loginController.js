@@ -14,9 +14,7 @@ let loginController = {
             where: [{email: req.body.email}]
         })
         .then( user => {
-            req.session.user = user;
-            console.log('en login controller');
-            console.log(req.session.user);
+            req.session.user = user;            
 
             //Si tildó recordame => creamos la cookie.
             if(req.body.rememberme != undefined){

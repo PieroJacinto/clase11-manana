@@ -21,15 +21,17 @@
                 <p class="card-text"><strong>Nombre:</strong> <%= movie.title %></p>
                 <p class="card-text"><strong>Rating:</strong> <%= movie.rating %></p>
                 <p class="card-text"><strong>Duración:</strong> <%= movie.length %> minutos</p>
-                <p class="card-text"><strong>Género:</strong> <a href=""></a></p>
+                <p class="card-text"><strong>Género: </strong> <a href="/genres/<%= movie.genre.id %>"><%= movie.genre.name %></a></p>
                 
                 <h5 class="mt-4">Actores</h5>
                 <ul class="list-group mb-3">
-                    <!-- aca iteramos los acrotes y los mostramos -->
-                    
+                    <!-- aca iteramos los actores y los mostramos -->
+                    <% for( let i = 0; i < movie.actors.length; i++ ) { %>
                         <li class="list-group-item">
-                            <a href=""><!-- aca deberia mostrarse la info del actor y en el href redireccionar a su detalle--></a>
-                        </li>
+                            <a href="/actors/<%= movie.actors[i].id %>"><%= movie.actors[i].first_name + " " + movie.actors[i].last_name %></a>
+                        </li>                        
+                    <% } %>
+                    
                     
                 </ul>
 

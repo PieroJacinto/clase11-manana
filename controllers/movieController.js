@@ -1,3 +1,4 @@
+const { Association } = require('sequelize');
 const db = require('../database/models'); //Requerimos la conexión a la base de datos y todos los modelos.
 const op = db.Sequelize.Op
 
@@ -7,10 +8,13 @@ const movieController = {
 
         db.Movie.findByPk(id, {
             // agregamos includes de generos y actores
-           
+            include: [
+                {association: "genre"},
+                {association: "actors"},
+            ]
         })
             .then(data =>{
-                // console.log("pelicula por id: ", JSON.stringify(data,null, 4))
+                //console.log("pelicula por id: ", JSON.stringify(data,null, 4))
                 return res.render('movie', { movie: data });
             })
             .catch(error =>{
