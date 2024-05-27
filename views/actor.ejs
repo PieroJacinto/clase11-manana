@@ -19,14 +19,18 @@
                 <h5 class="card-title">Películas en las que actuó</h5>
                 <ul class="list-group mb-3">
                     <!-- iterar el array de actores y mostrar las peliculas en las que actuó -->
-                    
+                    <% for( let i = 0; i < actor.movies.length; i++ ) { %>
                         <li class="list-group-item">
-                            <!-- aca se muestra cada pelicula en una etiqueta "a", que mande al detalle de la pelicula-->
-                        </li>
+                            <a href="/movies/detail/<%= actor.movies[i].id %>"> <%= actor.movies[i].title %></a>
+                        </li>                        
+                    <% } %>                   
                     
                 </ul>
                 <h5 class="card-title">Película Favorita</h5>
                 <!-- preguntar si el actor tiene pelicula favorita y mostrarla en un p con class="card-text y dentro una etiqueta "a" que mande a su detalle-->
+                <% if (actor.favorite_movie_id) { %>
+                    <p class="card-text"><a href="/movies/detail/<%= actor.favorite_movie_id %>"> <%= actor.favorite_movie.title %></a></p>
+                <% } %>
                
             </div>
         </div>

@@ -12,6 +12,7 @@ const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const genreRouter = require('./routes/genres');
 //aqui requerir router de actors
+const actorsRouter = require('./routes/actors');
 const db = require('./database/models');
 
 var app = express();
@@ -67,6 +68,7 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/genres', genreRouter)
 //aqui "usar el router de actors" !!!!!!
+app.use('/actors', actorsRouter)
 
 
 // catch 404 and forward to error handler

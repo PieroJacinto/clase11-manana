@@ -9,7 +9,7 @@
 
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Género:<!-- nombre del genero --> </h1>
+        <h1 class="text-center mb-4">Género: <%= genre.name %> </h1>
         <div class="d-flex justify-content-center mb-3">
             <a href="/" class="btn btn-primary mx-2">Home</a>
         </div>
@@ -19,10 +19,11 @@
                 <h5 class="card-title">Películas</h5>
                 <ul class="list-group mb-3">
                     <!-- aca iterar los generos y mostrar las peliculas -->
-                   
+                   <% for( let i = 0; i < genre.movies.length; i++ ) { %>
                         <li class="list-group-item">
-                            <!-- aca se muestra los generos en una etiqueta "a" que mande a su detalle -->
-                        </li>
+                            <a href="/movies/detail/<%= genre.movies[i].id %>"><%= genre.movies[i].title %></a>
+                        </li>                   
+                   <% } %>
                     
                 </ul>
             </div>
